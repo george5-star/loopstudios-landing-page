@@ -23,28 +23,115 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Project screenshot](./src/assets/project-screenshot.jpg)
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
+- BEM
 - Flexbox
 - CSS Grid
+- Semantic HTML5 markup
+- CSS custom properties
 - Accessibility in mind
-- BEM
 - Mobile-first workflow
 
 ### What I learned
 
+```html
+<div class="content">
+  <a href="#">
+    <div class="content-overlay"></div>
+    <img
+      class="content-image desktop"
+      src="./src/assets/desktop/image-grid.jpg"
+      alt="the grid"
+    />
+    <img
+      class="content-image mobile"
+      src="./src/assets/mobile/image-grid.jpg"
+      alt="the grid"
+    />
+    <div class="content-details fadeIn-bottom">
+      <p>The grid</p>
+    </div>
+  </a>
+</div>
+```
+
+```css
+.content {
+  position: relative;
+  margin-inline: auto;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.content-overlay {
+  background: var(--overlay);
+  position: absolute;
+  height: 99%;
+  width: 100%;
+  inset: 0;
+  opacity: 1;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.content:hover .content-overlay {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.content-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.content-details {
+  position: absolute;
+  text-align: left;
+  padding-left: 1em;
+  padding-right: 1em;
+  bottom: 20%;
+  left: 40%;
+  width: 70%;
+  opacity: 1;
+  transform: translate(-50%, 75%);
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.content:hover .content-details {
+  transition: all 0.3s ease-in-out 0s;
+  top: 50%;
+  left: 40%;
+  opacity: 1;
+}
+
+.content:hover .content-details p {
+  color: #000;
+}
+
+.content-details p {
+  color: #fff;
+  font-size: 2.5rem;
+  font-family: var(--ff-secondary);
+  text-transform: uppercase;
+}
+
+.fadeIn-bottom {
+  top: 80%;
+}
+```
+
+Well, there is way more to css than I thought and in this project, I learned a little bit about css transitions.
+
 ### Continued development
+
+Going forward, I will focus on how to add the little big details like smooth transitions, animations, etc.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Simple image overlay](https://codepen.io/ArnaudBalland/pen/vGZKLr?editors=1100) - This pen on codepen helped me implement the simple image overlay in the grid section.
 
 ## Author
 
